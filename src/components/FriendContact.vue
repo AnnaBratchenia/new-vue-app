@@ -1,17 +1,18 @@
 <template>
   <div>
-    <li class="name">{{ friends.name }}</li>
+    <li class="name">{{ name }}</li>
     <button class="btn" v-on:click="toggleDetails">
       {{ detailsIsvisible ? "Hide" : "Show" }} details
     </button>
     <ul v-if="detailsIsvisible">
-      <li class="add_info"><strong>Phone: </strong>{{ friends.phone }}</li>
-      <li class="add_info"><strong>Email: </strong>{{ friends.email }}</li>
+      <li class="add_info"><strong>Phone: </strong>{{ phoneNumber }}</li>
+      <li class="add_info"><strong>Email: </strong>{{ emailAddress }}</li>
     </ul>
   </div>
 </template>
 <script>
 export default {
+  props: ["name", "phoneNumber", "emailAddress"],
   data() {
     return {
       detailsIsvisible: false,

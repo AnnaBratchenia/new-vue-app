@@ -1,8 +1,16 @@
 <template>
   <section>
     <h2>My friends</h2>
-    <friend-contact></friend-contact>
-    <friend-contact></friend-contact>
+    <friend-contact
+      name="Johnas Borman"
+      phone-number="0985 356 265"
+      email-address="johnas@gmail.com"
+    ></friend-contact>
+    <friend-contact
+      name="Johann Weiss"
+      phone-number="0658 452 111"
+      email-address="johann@gmail.com"
+    ></friend-contact>
   </section>
 </template>
 
