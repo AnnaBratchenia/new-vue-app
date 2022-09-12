@@ -1,10 +1,14 @@
 <template>
-  <li>{{ friends.name }}</li>
-  <button v-on:click="toggleDetails">Show details</button>
-  <ul v-if="detailsIsvisible">
-    <li><strong>Phone: </strong>{{ friends.phone }}</li>
-    <li><strong>Email: </strong>{{ friends.email }}</li>
-  </ul>
+  <div>
+    <li class="name">{{ friends.name }}</li>
+    <button class="btn" v-on:click="toggleDetails">
+      {{ detailsIsvisible ? "Hide" : "Show" }} details
+    </button>
+    <ul v-if="detailsIsvisible">
+      <li class="add_info"><strong>Phone: </strong>{{ friends.phone }}</li>
+      <li class="add_info"><strong>Email: </strong>{{ friends.email }}</li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
