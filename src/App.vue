@@ -11,7 +11,6 @@
       name="Johann Weiss"
       phone-number="0658 452 111"
       email-address="johann@gmail.com"
-      is-favorite="0"
     ></friend-contact>
   </section>
 </template>
