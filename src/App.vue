@@ -2,15 +2,12 @@
   <section>
     <h2>My friends</h2>
     <friend-contact
-      name="Johnas Borman"
-      phone-number="0985 356 265"
-      email-address="johnas@gmail.com"
-      is-favorite="1"
-    ></friend-contact>
-    <friend-contact
-      name="Johann Weiss"
-      phone-number="0658 452 111"
-      email-address="johann@gmail.com"
+      v-for="friend in friends"
+      v-bind:key="friend.id"
+      v-bind:name="friend.name"
+      v-bind:phone-number="friend.phone"
+      v-bind:email-address="friend.email"
+      is-favorite="true"
     ></friend-contact>
   </section>
 </template>
@@ -18,7 +15,28 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      friends: [
+        {
+          id: "john",
+          name: "John Muller",
+          phone: "0957 340 509",
+          email: "johnmuller@gmail.com",
+        },
+        {
+          id: "julia",
+          name: "Julia Schwarzkopf",
+          phone: "0989 567 154",
+          email: "juliaschwarzkopf@gmail.com",
+        },
+        {
+          id: "johann",
+          name: "Johann Weiss",
+          phone: "0254 489 463",
+          email: "johannweiss@gmail.com",
+        },
+      ],
+    };
   },
 };
 </script>

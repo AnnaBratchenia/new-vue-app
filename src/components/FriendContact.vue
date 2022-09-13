@@ -1,7 +1,7 @@
 <template>
   <div>
     <li class="name">
-      {{ name }} {{ this.isFavoriteChange === "1" ? "(Favorite)" : "" }}
+      {{ name }} {{ this.isFavoriteChange ? "(Favorite)" : "" }}
     </li>
     <button class="btn" v-on:click="toggleFavorite">Toggle Favorite</button>
     <button class="btn" v-on:click="toggleDetails">
@@ -30,23 +30,14 @@ export default {
       required: true,
     },
     isFavorite: {
-      type: String,
+      type: Boolean,
       required: false,
-      default: "0",
-      validator: function (value) {
-        return value === "1" || value === "0";
-      },
+      default: false,
     },
   },
   data() {
     return {
       detailsIsvisible: false,
-      friends: {
-        id: "john",
-        name: "John Muller",
-        phone: "0957 340 509",
-        email: "johnmuller@gmail.com",
-      },
       isFavoriteChange: this.isFavorite,
     };
   },
@@ -55,9 +46,7 @@ export default {
       this.detailsIsvisible = !this.detailsIsvisible;
     },
     toggleFavorite() {
-      if (this.isFavoriteChange === "1") {
-        this.isFavoriteChange = "0";
-      } else this.isFavoriteChange = "1";
+      this.isFavoriteChange = !this.isFavoriteChange;
     },
   },
 };
