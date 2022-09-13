@@ -4,10 +4,12 @@
     <friend-contact
       v-for="friend in friends"
       v-bind:key="friend.id"
+      v-bind:id="friend.id"
       v-bind:name="friend.name"
       v-bind:phone-number="friend.phone"
       v-bind:email-address="friend.email"
-      is-favorite="true"
+      v-bind:is-favorite="friend.favorite"
+      @toggle-favorite="toggleFavoriteControl"
     ></friend-contact>
   </section>
 </template>
@@ -22,21 +24,32 @@ export default {
           name: "John Muller",
           phone: "0957 340 509",
           email: "johnmuller@gmail.com",
+          favorite: false,
         },
         {
           id: "julia",
           name: "Julia Schwarzkopf",
           phone: "0989 567 154",
           email: "juliaschwarzkopf@gmail.com",
+          favorite: false,
         },
         {
           id: "johann",
           name: "Johann Weiss",
           phone: "0254 489 463",
           email: "johannweiss@gmail.com",
+          favorite: false,
         },
       ],
     };
+  },
+  methods: {
+    toggleFavoriteControl(favoriteId) {
+      const identifiedFriend = this.friends.find(
+        (friend) => friend.id === favoriteId
+      );
+      identifiedFriend.favorite = !identifiedFriend.favorite;
+    },
   },
 };
 </script>
