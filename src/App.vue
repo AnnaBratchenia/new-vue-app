@@ -1,6 +1,7 @@
 <template>
   <section>
     <h2>My friends</h2>
+    <add-new-friend @add-friend-contact="addFriendcontrol"></add-new-friend>
     <friend-contact
       v-for="friend in friends"
       v-bind:key="friend.id"
@@ -50,6 +51,20 @@ export default {
       );
       identifiedFriend.favorite = !identifiedFriend.favorite;
     },
+    addFriendcontrol(nameNew, phoneNew, emailNew) {
+      const idFriends = nameNew.split(" ")[0].toLowerCase();
+
+      const friendInfo = {
+        id: idFriends,
+        name: nameNew,
+        phone: phoneNew,
+        email: emailNew,
+        favorite: false,
+      };
+      this.friends.push(friendInfo);
+
+      console.log(this.friends);
+    },
   },
 };
 </script>
@@ -90,17 +105,5 @@ h2 {
   border: none;
   display: block;
   margin: 10px auto;
-}
-.name {
-  font-size: 36px;
-  text-align: center;
-  padding-top: 10px;
-}
-.add_info {
-  font-size: 24px;
-  text-align: center;
-}
-.add_info:last-child {
-  margin-bottom: 20px;
 }
 </style>

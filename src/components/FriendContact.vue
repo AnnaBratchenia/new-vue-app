@@ -13,6 +13,7 @@
 </template>
 <script>
 export default {
+  emits: ["toggle-favorite"],
   // props: ["name", "phoneNumber", "emailAddress", "isFavorite"],
   props: {
     id: {
@@ -52,3 +53,17 @@ export default {
   },
 };
 </script>
+<style>
+.name {
+  font-size: 36px;
+  text-align: center;
+  padding-top: 10px;
+}
+.add_info {
+  font-size: 24px;
+  text-align: center;
+}
+.add_info:last-child {
+  margin-bottom: 20px;
+}
+</style>
