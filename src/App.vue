@@ -11,6 +11,7 @@
       v-bind:email-address="friend.email"
       v-bind:is-favorite="friend.favorite"
       @toggle-favorite="toggleFavoriteControl"
+      @delete="deleteContact"
     ></friend-contact>
   </section>
 </template>
@@ -64,6 +65,9 @@ export default {
       this.friends.push(friendInfo);
 
       console.log(this.friends);
+    },
+    deleteContact(id) {
+      this.friends = this.friends.filter((friend) => friend.id !== id);
     },
   },
 };

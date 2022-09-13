@@ -5,6 +5,7 @@
     <button class="btn" v-on:click="toggleDetails">
       {{ detailsIsvisible ? "Hide" : "Show" }} details
     </button>
+    <button class="btn" v-on:click="$emit('delete', id)">Delete</button>
     <ul v-if="detailsIsvisible">
       <li class="add_info"><strong>Phone: </strong>{{ phoneNumber }}</li>
       <li class="add_info"><strong>Email: </strong>{{ emailAddress }}</li>
@@ -13,7 +14,7 @@
 </template>
 <script>
 export default {
-  emits: ["toggle-favorite"],
+  emits: ["toggle-favorite", "delete"],
   // props: ["name", "phoneNumber", "emailAddress", "isFavorite"],
   props: {
     id: {
