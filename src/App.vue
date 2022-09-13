@@ -5,11 +5,13 @@
       name="Johnas Borman"
       phone-number="0985 356 265"
       email-address="johnas@gmail.com"
+      is-favorite="1"
     ></friend-contact>
     <friend-contact
       name="Johann Weiss"
       phone-number="0658 452 111"
       email-address="johann@gmail.com"
+      is-favorite="0"
     ></friend-contact>
   </section>
 </template>
